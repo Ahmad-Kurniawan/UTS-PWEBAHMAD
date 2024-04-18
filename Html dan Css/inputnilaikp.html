@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Nilai KP</title>
+  <link rel="stylesheet" href="inputnilaikp.css">
+</head>
+<body>
+  <nav>
+    <div class="nav__content">
+      <div class="logo"><i><a href="#">INSEMTIF</a></i></div> 
+      <label for="check" class="checkbox">
+        <i class="ri-menu-line"></i>
+      </label>
+      <input type="checkbox" name="check" id="check" />
+      <ul>
+        <li><a href="Dashbord.html">Dashbord</a></li>
+        <li><a href="">Input NIlai KP/TA</a></li>
+        <li><a href="Akun.html">Akun</a></li>
+        <li><a href="Logout.html">Keluar</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="profile">
+        <img src="gambar/Profil.jpg" alt="profile_picture" />
+        <h3>Ahmad Kurniawan</h3>
+        <p>12250111514</p>
+        <p>Mahasiswa</p>
+        <div class="info-box">
+          <a href="hasilnilai.html" style="color: black;">INFO</a>
+        </div>  
+      </div>     
+    </div>
+  <h1 class="title">Input Nilai KP</h1>
+  <div class="quotes-box">
+    <table>
+      <tbody>
+        <tr>
+          <td>Motivasi Dan Semangat</td>
+          <td><input type="number" min="0" max="100" value="0" class="nilai-input"></td>
+        </tr>
+        <tr>
+          <td>Keuletan Dalam Penelitian</td>
+          <td><input type="number" min="0" max="100" value="0" class="nilai-input"></td>
+        </tr>
+        <tr>
+          <td>Kreativitas</td>
+          <td><input type="number" min="0" max="100" value="0" class="nilai-input"></td>
+        </tr>
+        <tr>
+          <td>Ketepatan Waktu Penelitian Sesuai Jadwal</td>
+          <td><input type="number" min="0" max="100" value="0" class="nilai-input"></td>
+        </tr>
+        <tr>
+          <td>Tanggung Jawab</td>
+          <td><input type="number" min="0" max="100" value="0" class="nilai-input"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="2">Total</th>
+          <td id="total-value"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <button id="simpan-button"><a href="" style="color: white;">Simpan</a></button>
+  </div>
+
+  <script>
+    const nilaiInputs = document.querySelectorAll('.nilai-input');
+    const totalValue = document.getElementById('total-value');
+
+    const calculateTotal = () => {
+      let sum = 0;
+      for (const input of nilaiInputs) {
+        sum += parseInt(input.value);
+      }
+      const totalPercentage = (sum / (nilaiInputs.length * 100)) * 100;
+      totalValue.textContent = totalPercentage.toFixed(2) + '';
+    };
+
+    nilaiInputs.forEach(input => input.addEventListener('input', calculateTotal));
+
+    calculateTotal();
+
+    
+    const simpanButton = document.getElementById('simpan-button');
+    simpanButton.addEventListener('click', () => {
+      alert('Nilai berhasil disimpan!');
+    });
+  </script>
+
+</body>
+</html>
